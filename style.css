@@ -7,10 +7,10 @@ body {
     text-align: center;
 }
 
-/* Cabeçalho com dourado */
+/* Cabeçalho com dourado e roxo */
 header {
-    background: linear-gradient(135deg, #b8860b, #ffb300); /* tons de dourado */
-    color: #000; /* preto */
+    background: linear-gradient(135deg, #b8860b, #6a1b9a); /* dourado para roxo */
+    color: #fff; /* branco para melhor contraste */
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
