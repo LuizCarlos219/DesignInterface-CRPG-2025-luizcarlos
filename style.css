@@ -2,15 +2,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #e3f2fd, #bbdefb);
-    color: #333;
+    background: linear-gradient(to right, #fff8e1, #ffe082); /* dourado claro */
+    color: #000; /* texto preto */
     text-align: center;
 }
 
-/* Cabeçalho mais moderno */
+/* Cabeçalho com dourado */
 header {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
-    color: white;
+    background: linear-gradient(135deg, #b8860b, #ffb300); /* tons de dourado */
+    color: #000; /* preto */
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -28,18 +28,19 @@ header nav {
 
 header nav a {
     display: inline-block;
-    color: #ffeb3b;
+    color: #000; /* preto */
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
     padding: 6px 12px;
     border-radius: 6px;
+    background-color: #ffeb3b; /* amarelo claro/dourado */
     transition: background-color 0.3s, color 0.3s;
 }
 
 header nav a:hover {
-    background-color: #ffeb3b;
-    color: #0d47a1;
+    background-color: #000; /* preto */
+    color: #ffd700; /* dourado */
 }
 
 /* Conteúdo principal */
@@ -48,16 +49,16 @@ main {
 }
 
 main h1 {
-    color: #0d47a1;
+    color: #b8860b; /* dourado escuro */
 }
 
 /* Rodapé */
 footer {
-    background-color: #eeeeee;
+    background-color: #f5f5dc; /* bege claro */
     padding: 15px;
     margin-top: 30px;
     font-size: 0.9em;
-    color: #555;
+    color: #333;
     box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
 }
 
@@ -75,12 +76,15 @@ footer {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .carros img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
+
+/* Formulário de contato */
 .contato-form {
     max-width: 400px;
     margin: 20px auto;
@@ -92,7 +96,7 @@ footer {
 
 .contato-form label {
     font-weight: bold;
-    color: #0d47a1;
+    color: #b8860b; /* dourado escuro */
 }
 
 .contato-form input,
@@ -106,8 +110,8 @@ footer {
 }
 
 .contato-form button {
-    background: #0d47a1;
-    color: white;
+    background: #b8860b; /* dourado escuro */
+    color: #000; /* preto */
     padding: 10px;
     border: none;
     border-radius: 6px;
@@ -117,6 +121,5 @@ footer {
 }
 
 .contato-form button:hover {
-    background: #1976d2;
+    background: #daa520; /* dourado mais claro */
 }
-
