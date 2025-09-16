@@ -12,7 +12,7 @@
 
     <!-- Cabeçalho -->
     <header>
-        <h2>Locadora IFPR</h2>
+        <h2>Locadora de Super Carros IFPR</h2>
         <nav>
             <a href="index.html">Início</a>
             <a href="filiais.html">Filiais</a>
@@ -24,17 +24,26 @@
     <main>
         <h1>Entre em Contato</h1>
         <form class="contato-form" action="action_contato.php" method="POST">
+            <label for="data">Data do contato (date):</label>
+            <input type="date" id="data" name="data">
+
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <label>Sexo (radio):</label>
+<input type="radio" id="masc" name="sexo" value="Masculino">
+<label for="masc">Masculino</label>
+<input type="radio" id="fem" name="sexo" value="Feminino">
+<label for="fem">Feminino</label>
+
+
+            <label for="number">Telefone:</label>
+            <input type="number" id="Número" number="Número" placeholder="Digite seu numero de Telefone" required>
 
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
 
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem"></textarea>
-
-            <label for="data">Data do contato:</label>
-            <input type="date" id="data" name="data">
 
             <button type="submit">Enviar</button>
         </form>
