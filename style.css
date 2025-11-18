@@ -199,7 +199,7 @@ footer {
 /* ---------- TEMA ESCURO ---------- */
 .tema-escuro {
   background-color: #0f1720;
-  color: #e9eef5;
+  color: #200f15;
 }
 
 .tema-escuro header {
@@ -208,7 +208,7 @@ footer {
 
 .tema-escuro footer {
   background-color: #0b1220;
-  color: #e9eef5;
+  color: #200f15;
 }
 
 .tema-escuro .conteudo-scroll {
@@ -221,7 +221,7 @@ footer {
 }
 
 .tema-escuro .bloco-item h2 {
-  color: #8db0ff;
+  color: #200f15;
 }
 
 /* Toggle no modo escuro */
