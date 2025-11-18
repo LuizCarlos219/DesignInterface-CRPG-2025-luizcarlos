@@ -232,6 +232,10 @@ footer {
 .tema-escuro .tema-toggle .bolinha {
   transform: translateX(24px);
 }
+.tema-escuro .tema-toggle .bolinha {
+  transform: translateX(24px);
+}
+
 /* ---------- Botão Toggle ---------- */
 .tema-toggle {
   position: absolute;
