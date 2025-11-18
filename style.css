@@ -260,14 +260,14 @@ footer {
   background: #cfe7df;  /* prata esverdeado, brilhante */
 }
 
-/* ---------- TOGGLE DO TEMA ---------- */
+/* ---------- TOGGLE DO TEMA (MODO CLARO – PRATA) ---------- */
 .tema-toggle {
     position: absolute;
     top: 15px;
     right: 20px;
     width: 50px;
     height: 26px;
-    background: #ddd;
+    background: #c8cfcf;     /* prata claro */
     border-radius: 20px;
     cursor: pointer;
     padding: 3px;
@@ -279,15 +279,17 @@ footer {
 .tema-toggle .bolinha {
     width: 20px;
     height: 20px;
-    background: white;
+    background: #f2f2f2;     /* prata quase branca */
     border-radius: 50%;
-    transition: transform 0.25s;
+    transition: transform 0.25s, background 0.25s;
 }
 
+/* ---------- TOGGLE DO TEMA (MODO ESCURO – VERDE + PRATA) ---------- */
 .tema-escuro .tema-toggle {
-    background: #374151;
+    background: #0f3327;      /* verde musgo profundo */
 }
 
 .tema-escuro .tema-toggle .bolinha {
     transform: translateX(24px);
+    background: #d6e3e1;     /* prata suave, elegante */
 }
