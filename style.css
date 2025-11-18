@@ -198,46 +198,66 @@ footer {
     margin: 6px 0;
 }
 
-/* ---------- TEMA ESCURO (CORRIGIDO) ---------- */
+/* ---------- TEMA ESCURO (VERDE + PRATA) ---------- */
 .tema-escuro {
-    background: #0f172a;
-    color: #f1f5f9;
+  background-color: #0c1f17;   /* verde petróleo muito escuro */
+  color: #d2d8db;              /* prata suave */
 }
 
+/* Cabeçalho – verde profundo com prata */
 .tema-escuro header {
-    background: linear-gradient(135deg, #4e3205, #3b0c5e);
+  background: linear-gradient(135deg, #0b281f, #134e35); /* verde escuro elegante */
+  color: #e5e8ea; /* prata clara */
 }
 
+/* Rodapé */
 .tema-escuro footer {
-    background: #0b1220;
-    color: #f1f5f9;
+  background-color: #0b1813;
+  color: #d2d8db; /* prata */
 }
 
+/* Containers internos */
 .tema-escuro .conteudo-scroll {
-    background: #111821;
-    border-color: #2a3645;
+  background: #0f2a21;       /* verde escuro */
+  border-color: #3b4e46;     /* prata-esverdeado */
 }
 
 .tema-escuro .bloco-item {
-    border-color: #2a3645;
+  border-color: #3b4e46;
 }
 
+/* Títulos internos – destaque prata/verdiado */
 .tema-escuro .bloco-item h2 {
-    color: #ffd700; /* dourado no modo escuro */
+  color: #9fdac3; /* verde água claro (contraste perfeito) */
 }
 
+/* Tabela */
 .tema-escuro .dados-planilha {
-    background: #101827;
-    color: #e2e8f0;
+  background: #0f2a21;
+  color: #d2d8db;
+}
+
+.tema-escuro .dados-planilha th {
+  background: linear-gradient(90deg, #1b3c31, #134e35); /* verde escuro + verde folha */
+  color: #e5e5e5; /* prata clara */
 }
 
 .tema-escuro .dados-planilha tr:nth-child(even) {
-    background: #1e293b;
+  background: #1a2f27;  /* verde mais escuro */
 }
 
-.tema-escuro .dados-planilha td,
-.tema-escuro .dados-planilha th {
-    border-color: #2a3645;
+.tema-escuro .dados-planilha td {
+  border-color: #3b4e46;
+}
+
+/* Toggle */
+.tema-escuro .tema-toggle {
+  background: #3e4a47;  /* prata metálico escuro */
+}
+
+.tema-escuro .tema-toggle .bolinha {
+  transform: translateX(24px);
+  background: #cfe7df;  /* prata esverdeado, brilhante */
 }
 
 /* ---------- TOGGLE DO TEMA ---------- */
