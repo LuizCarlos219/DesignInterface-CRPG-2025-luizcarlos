@@ -19,22 +19,25 @@
     <a href="contato.html">Contato</a>
     <a href="planilha.html">Planilha</a>
   </nav>
-<div>
+
   <div id="tema-toggle" class="tema-toggle">
-    <div class="bolinha"></div>
+      <div class="bolinha"></div>
   </div>
 </header>
 
-    <!-- Conteúdo principal -->
+<!-- Conteúdo principal -->
 <main>
   <h1>Bem-vindo à Locadora de Veículos</h1>
   <p>Encontre o carro ideal para sua diversão, corrida ou lazer.</p>
 
-
+  <!-- Container onde o conteúdo será carregado -->
+  <div id="conteudo"></div>
 </main>
 
+<!-- Script para carregar conteúdo da planilha -->
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmXtBIyBNLxmcHbW0XhgWNBLm73Fbjb0FU5f7bOfuR2lUJj3eTBMjPCs0SAQljCDw/exec"
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmXtBIyBNLxmcHbW0XhgWNBLm73Fbjb0FU5f7bOfuR2lUJj3eTBMjPCs0SAQljCDw/exec";
+
 async function carregarConteudo() {
   const container = document.getElementById('conteudo');
   container.innerHTML = "<p>Carregando conteúdo...</p>";
@@ -57,62 +60,64 @@ async function carregarConteudo() {
       bloco.appendChild(descricao);
 
       if (item.Url && item.Url.startsWith('http')) {
-  const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+        const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
 
-  const match = item.Url.match(youtubeRegex);
-  if (match) {
-    const videoId = match[1];
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.width = "100%";
-    iframe.height = "315";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.setAttribute("allowfullscreen", true);
-    bloco.appendChild(iframe);
-  }
-  else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
-    const img = document.createElement('img');
-    img.src = item.Url;
-    img.alt = item.Título || 'Imagem';
-    bloco.appendChild(img);
-  }
-  else {
-    const link = document.createElement('a');
-    link.href = item.Url;
-    link.textContent = 'Ver mais';
-    bloco.appendChild(link);
-  }
-}
+        const match = item.Url.match(youtubeRegex);
+        if (match) {
+          const videoId = match[1];
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${videoId}`;
+          iframe.width = "100%";
+          iframe.height = "315";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.setAttribute("allowfullscreen", true);
+          bloco.appendChild(iframe);
+        }
+        else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
+          const img = document.createElement('img');
+          img.src = item.Url;
+          img.alt = item.Título || 'Imagem';
+          bloco.appendChild(img);
+        }
+        else {
+          const link = document.createElement('a');
+          link.href = item.Url;
+          link.textContent = 'Ver mais';
+          bloco.appendChild(link);
+        }
+      }
+
       container.appendChild(bloco);
     });
+
   } catch (err) {
     container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
   }
 }
+</script>
+
+<!-- Script do modo escuro -->
+<script>
   const toggle = document.getElementById("tema-toggle");
   const body = document.body;
 
-  // Carregar tema salvo
   let tema = localStorage.getItem("tema") || "tema-claro";
   if (tema === "tema-escuro") body.classList.add("tema-escuro");
 
   toggle.addEventListener("click", () => {
     body.classList.toggle("tema-escuro");
-
     const ativo = body.classList.contains("tema-escuro");
     localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
   });
-    
-carregarConteudo();
+
+  carregarConteudo();
 </script>
 
-<script>
-
-    <footer>
-        <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
-    </footer>
+<!-- Rodapé -->
+<footer>
+    <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
+</footer>
 
 </body>
-
 </html>
 
