@@ -89,11 +89,6 @@ async function carregarConteudo() {
     container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
   }
 }
-
-carregarConteudo();
-</script>
-
-<script>
   const toggle = document.getElementById("tema-toggle");
   const body = document.body;
 
@@ -108,6 +103,11 @@ carregarConteudo();
     localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
   });
     
+carregarConteudo();
+</script>
+
+<script>
+
     <footer>
         <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
     </footer>
