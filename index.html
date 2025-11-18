@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Veículos</title>
+    <title>Locadora IFPR</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Cabeçalho -->
 <header>
   <h2>Locadora IFPR</h2>
+
   <nav>
     <a href="index.html">Início</a>
     <a href="filiais.html">Filiais</a>
@@ -20,21 +20,20 @@
     <a href="planilha.html">Planilha</a>
   </nav>
 
+  <!-- Toggle -->
   <div id="tema-toggle" class="tema-toggle">
       <div class="bolinha"></div>
   </div>
 </header>
 
-<!-- Conteúdo principal -->
 <main>
   <h1>Bem-vindo à Locadora de Veículos</h1>
   <p>Encontre o carro ideal para sua diversão, corrida ou lazer.</p>
 
-  <!-- Container onde o conteúdo será carregado -->
   <div id="conteudo"></div>
 </main>
 
-<!-- Script para carregar conteúdo da planilha -->
+
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmXtBIyBNLxmcHbW0XhgWNBLm73Fbjb0FU5f7bOfuR2lUJj3eTBMjPCs0SAQljCDw/exec";
 
@@ -45,44 +44,66 @@ async function carregarConteudo() {
   try {
     const res = await fetch(SCRIPT_URL);
     const dados = await res.json();
-    container.innerHTML = '';
+    container.innerHTML = "";
 
     dados.forEach(item => {
-      const bloco = document.createElement('div');
-      bloco.className = 'bloco-item';
+      const bloco = document.createElement("div");
+      bloco.className = "bloco-item";
 
-      const titulo = document.createElement('h2');
-      titulo.textContent = item.Título || '';
+      /* Título */
+      const titulo = document.createElement("h2");
+      titulo.textContent = item.Título || "";
       bloco.appendChild(titulo);
 
-      const descricao = document.createElement('p');
-      descricao.textContent = item.Descrição || '';
+      /* Descrição */
+      const descricao = document.createElement("p");
+      descricao.textContent = item.Descrição || "";
       bloco.appendChild(descricao);
 
-      if (item.Url && item.Url.startsWith('http')) {
-        const youtubeRegex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+      /* Conteúdos (imagem / vídeo / link) */
+      if (item.Url && item.Url.startsWith("http")) {
 
-        const match = item.Url.match(youtubeRegex);
-        if (match) {
-          const videoId = match[1];
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        const url = item.Url.trim();
+
+        /* YouTube */
+        const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+        if (yt) {
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://www.youtube.com/embed/${yt[1]}`;
           iframe.width = "100%";
           iframe.height = "315";
           iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
           iframe.setAttribute("allowfullscreen", true);
           bloco.appendChild(iframe);
         }
-        else if (item.Url.match(/\.(jpg|jpeg|png|gif|webp)$/i) || item.Url.includes('unsplash')) {
-          const img = document.createElement('img');
-          img.src = item.Url;
-          img.alt = item.Título || 'Imagem';
+
+        /* Imagem (Drive, JPG, PNG, Unsplash etc.) */
+        else if (
+          url.match(/\.(jpg|jpeg|png|gif|webp)$/i) ||
+          url.includes("unsplash.com") ||
+          url.includes("drive.google.com")
+        ) {
+
+          let imgUrl = url;
+
+          /* Converter link do Google Drive */
+          if (url.includes("drive.google.com")) {
+            const id = url.match(/\/d\/(.*)\//);
+            if (id) imgUrl = `https://drive.google.com/uc?export=view&id=${id[1]}`;
+          }
+
+          const img = document.createElement("img");
+          img.src = imgUrl;
+          img.alt = item.Título || "Imagem";
           bloco.appendChild(img);
         }
+
+        /* Caso seja apenas um link */
         else {
-          const link = document.createElement('a');
-          link.href = item.Url;
-          link.textContent = 'Ver mais';
+          const link = document.createElement("a");
+          link.href = url;
+          link.textContent = "Acessar conteúdo";
+          link.target = "_blank";
           bloco.appendChild(link);
         }
       }
@@ -91,30 +112,30 @@ async function carregarConteudo() {
     });
 
   } catch (err) {
-    container.innerHTML = "<p>Erro ao carregar dados: " + err.message + "</p>";
+    container.innerHTML = `<p>Erro ao carregar dados: ${err.message}</p>`;
   }
 }
 
-  const toggle = document.getElementById("tema-toggle");
-  const body = document.body;
 
-  let tema = localStorage.getItem("tema") || "tema-claro";
-  if (tema === "tema-escuro") body.classList.add("tema-escuro");
+/* ---------- TEMA ESCURO ---------- */
+const toggle = document.getElementById("tema-toggle");
+const body = document.body;
 
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("tema-escuro");
-    const ativo = body.classList.contains("tema-escuro");
-    localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
-  });
+let tema = localStorage.getItem("tema") || "tema-claro";
+if (tema === "tema-escuro") body.classList.add("tema-escuro");
 
-  carregarConteudo();
+toggle.addEventListener("click", () => {
+  body.classList.toggle("tema-escuro");
+  const ativo = body.classList.contains("tema-escuro");
+  localStorage.setItem("tema", ativo ? "tema-escuro" : "tema-claro");
+});
+
+carregarConteudo();
 </script>
 
-<!-- Rodapé -->
 <footer>
-    <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
+  <p>&copy; 2025 Locadora IFPR - Todos os direitos reservados</p>
 </footer>
 
 </body>
 </html>
-
