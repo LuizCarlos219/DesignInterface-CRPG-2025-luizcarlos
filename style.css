@@ -223,44 +223,35 @@ footer {
 }
 
 .tema-escuro .bloco-item {
-  border-color: #3b4e46;
+  background: #10251d;
+  border: 1px solid #3b4e46;
 }
 
-/* Títulos internos – destaque prata/verdiado */
 .tema-escuro .bloco-item h2 {
-  color: #9fdac3; /* verde água claro (contraste perfeito) */
+  color: #9fdac3; /* verde água claro */
 }
 
-/* Tabela */
 .tema-escuro .dados-planilha {
   background: #0f2a21;
   color: #d2d8db;
 }
 
 .tema-escuro .dados-planilha th {
-  background: linear-gradient(90deg, #1b3c31, #134e35); /* verde escuro + verde folha */
-  color: #e5e5e5; /* prata clara */
+  background: linear-gradient(90deg, #1b3c31, #134e35);
+  color: #e5e5e5;
 }
 
 .tema-escuro .dados-planilha tr:nth-child(even) {
-  background: #1a2f27;  /* verde mais escuro */
+  background: #1a2f27;
 }
 
 .tema-escuro .dados-planilha td {
   border-color: #3b4e46;
 }
 
-/* Toggle */
-.tema-escuro .tema-toggle {
-  background: #3e4a47;  /* prata metálico escuro */
-}
+/* ---------- TOGGLE DO TEMA (CLARO E ESCURO) ---------- */
 
-.tema-escuro .tema-toggle .bolinha {
-  transform: translateX(24px);
-  background: #cfe7df;  /* prata esverdeado, brilhante */
-}
-
-/* ---------- TOGGLE DO TEMA (MODO CLARO – PRATA) ---------- */
+/* Claro */
 .tema-toggle {
     position: absolute;
     top: 15px;
@@ -282,6 +273,16 @@ footer {
     background: #f2f2f2;     /* prata quase branca */
     border-radius: 50%;
     transition: transform 0.25s, background 0.25s;
+}
+
+/* Escuro */
+.tema-escuro .tema-toggle {
+  background: #3e4a47;  /* prata metálico escuro */
+}
+
+.tema-escuro .tema-toggle .bolinha {
+  transform: translateX(24px);
+  background: #cfe7df;  /* prata esverdeado */
 }
 
 /* ---------- TOGGLE DO TEMA (MODO ESCURO – VERDE + PRATA) ---------- */
